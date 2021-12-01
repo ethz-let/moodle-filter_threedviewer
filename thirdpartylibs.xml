@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<libraries>
+  <library>
+    <location>amd/src/threed-viewer.js</location>
+    <name>three.js</name>
+    <license>MIT</license>
+    <version>r135</version>
+    <licenseversion></licenseversion>
+  </library>
+  <library>
+    <location>amd/src/threed-viewer.js</location>
+    <name>threed-viewer</name>
+    <license>GPL</license>
+    <version>1.0.0</version>
+    <licenseversion>3.0+</licenseversion>
+  </library>
+</libraries>
