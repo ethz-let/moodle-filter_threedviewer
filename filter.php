@@ -65,7 +65,7 @@ class filter_threedviewer extends moodle_text_filter {
 
         $this->page->requires->js_call_amd('filter_threedviewer/threed-filter', 'init');
   
-        //include here to remove error 
+        // Include here to remove error.
         return $text;
     }
 }
