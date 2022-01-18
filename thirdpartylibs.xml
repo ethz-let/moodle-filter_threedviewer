@@ -8,8 +8,8 @@
     <licenseversion></licenseversion>
   </library>
   <library>
-    <location>amd/src/threed-viewer.js</location>
-    <name>threed-viewer</name>
+    <location>amd/src/threed-filter.js</location>
+    <name>threed-filter</name>
     <license>GPL</license>
     <version>1.0.0</version>
     <licenseversion>3.0+</licenseversion>
