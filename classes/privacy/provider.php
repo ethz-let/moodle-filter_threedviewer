@@ -16,8 +16,6 @@
 
 namespace filter_threedviewer\privacy;
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Privacy Subsystem for filter_threedviewer implementing null_provider.
  *

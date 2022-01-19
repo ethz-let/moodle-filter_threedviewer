@@ -24,8 +24,6 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-defined('MOODLE_INTERNAL') || die();
-
 /**
  * Class filter_threedviewer
  *
@@ -34,14 +32,14 @@ defined('MOODLE_INTERNAL') || die();
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class filter_threedviewer extends moodle_text_filter {
-    
+
     public $page;
-    
+
     public function setup($page, $context) {
          // This only requires execution once per request.
-        
+
         $this->page = $page;
-        
+
         static $jsinitialised = false;
         if ($jsinitialised) {
             return;
@@ -50,7 +48,7 @@ class filter_threedviewer extends moodle_text_filter {
 
     }
 
-    function filter($text, array $options = array()) {
+    public function filter($text, array $options = array()) {
         global $CFG;
 
         if (!is_string($text) or empty($text)) {
@@ -64,8 +62,7 @@ class filter_threedviewer extends moodle_text_filter {
         }
 
         $this->page->requires->js_call_amd('filter_threedviewer/threed-filter', 'init');
-  
-        // Include here to remove error.
+
         return $text;
     }
 }

@@ -23,8 +23,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2021120100;        // The current plugin version (Date: YYYYMMDDXX)
-$plugin->requires  = 2014111100;        // Requires this Moodle version
-$plugin->component = 'filter_threedviewer';     // Full name of the plugin (used for diagnostics)
+$plugin->version   = 2022011800;        // The current plugin version (Date: YYYYMMDDXX).
+$plugin->requires  = 2014111100;        // Requires this Moodle version.
+$plugin->component = 'filter_threedviewer';     // Full name of the plugin (used for diagnostics).
 $plugin->maturity   = MATURITY_BETA;
 $plugin->release = '1.0';
