@@ -1,0 +1,23 @@
+name: "CI"
+
+on:
+  pull_request:
+    paths:
+      - "**.php"
+      - ".github/workflows/phpcs.yml"
+
+jobs:
+  phpcs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # important!
+
+      - name: Retrieve moodle standards
+        run: |
+          git clone git://github.com/moodlehq/moodle-local_codechecker.git ../local_codechecker
+          ../local_codechecker/phpcs/bin/phpcs --config-set default_standard moodle
+
+      - name: Check moodle code compliance
+        run: ../local_codechecker/phpcs/bin/phpcs **.php
