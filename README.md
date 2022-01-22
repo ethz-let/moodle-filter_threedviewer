@@ -1,7 +1,5 @@
 # Threed-Viewer Moodle filter
 
-Work in progress - please do NOT delete the repo.
-
 This moodle filter uses a custom Javascript layer ([threed-viewer](https://github.com/cyrilpic/threed-viewer)) built on top of Three.js to display an interactive STL viewer.
 
 The filter's work is limited to detecting the presence of `.stl` in the content and asking the Javascript library to be loaded.
