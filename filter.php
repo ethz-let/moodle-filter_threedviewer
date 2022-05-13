@@ -20,7 +20,7 @@
  * This plugin is implemented in pure JavaScript.
  *
  * @package    filter_threedviewer
- * @copyright  2021 Cyril Picard <cpicard@ethz.ch>
+ * @copyright  2022 Cyril Picard <cpicard@ethz.ch>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -28,7 +28,7 @@
  * Class filter_threedviewer
  *
  * @package    filter_threedviewer
- * @copyright  2021 Cyril Picard <cpicard@ethz.ch>
+ * @copyright  2022 Cyril Picard <cpicard@ethz.ch>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class filter_threedviewer extends moodle_text_filter {
@@ -56,8 +56,8 @@ class filter_threedviewer extends moodle_text_filter {
             return $text;
         }
 
-        if (stripos($text, '.stl') === false) {
-            // Performance shortcut - if there is no </a> tag, nothing can match.
+        if (stripos($text, '.stl') === false && stripos($text, '.glb') === false && stripos($text, '.gltf') === false) {
+            // If there is no .stl|.glb|.gltf, nothing can match.
             return $text;
         }
 

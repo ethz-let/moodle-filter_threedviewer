@@ -17,13 +17,13 @@
  *
  * @package    filter
  * @subpackage threedviewer
- * @copyright 2021 Cyril Picard <cpicard@ethz.ch>
+ * @copyright 2022 Cyril Picard <cpicard@ethz.ch>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2022041900;        // The current plugin version (Date: YYYYMMDDXX).
+$plugin->version   = 2022051200;        // The current plugin version (Date: YYYYMMDDXX).
 $plugin->requires  = 2014111100;        // Requires this Moodle version.
 $plugin->component = 'filter_threedviewer';     // Full name of the plugin (used for diagnostics).
 $plugin->maturity   = MATURITY_BETA;

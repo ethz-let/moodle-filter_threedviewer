@@ -4,7 +4,7 @@
     <location>amd/src/threed-viewer.js</location>
     <name>three.js</name>
     <license>MIT</license>
-    <version>r135</version>
+    <version>r140</version>
     <licenseversion></licenseversion>
   </library>
   <library>
@@ -13,5 +13,19 @@
     <license>GPL</license>
     <version>1.0.0</version>
     <licenseversion>3.0+</licenseversion>
+  </library>
+  <library>
+    <location>libs/basis</location>
+    <name>Basis Universal GPU Texture Compression</name>
+    <license>Apache</license>
+    <version>1.0.0</version>
+    <licenseversion>2.0</licenseversion>
+  </library>
+  <library>
+    <location>libs/draco</location>
+    <name>Draco 3D Data Compression</name>
+    <license>Apache</license>
+    <version>1.0.0</version>
+    <licenseversion>2.0</licenseversion>
   </library>
 </libraries>

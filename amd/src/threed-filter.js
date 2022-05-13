@@ -1,14 +1,24 @@
-import "filter_threedviewer/threed-viewer";
+import {loader} from "filter_threedviewer/threed-viewer";
 
 export const init = () => {
-    const stlNodes = document.querySelectorAll(':not(threed-model) > a[href*=".stl"]');
-    stlNodes.forEach((el) => {
-        const addr = new URL(el.getAttribute('href'));
-        let width = addr.searchParams.get('width');
+    loader.loaders.ktx2.setTranscoderPath( '/filter/threedviewer/libs/basis/' );
+    loader.loaders.draco.setDecoderPath( '/filter/threedviewer/libs/draco/' );
+
+    const modelLinks = document.querySelectorAll(':not(threed-model) > a[href*=".stl"], :not(threed-model) > a[href*=".gltf"], :not(threed-model) > a[href*=".glb"]');
+    modelLinks.forEach((el) => {
+        const addr = new URL(el);
+        const width = addr.searchParams.get('width');
+        const noWireframe = addr.searchParams.get('nowireframe');
+        const zoom = addr.searchParams.get('zoom');
+        const noCenter = addr.searchParams.get('nocenter');
+        const noScale = addr.searchParams.get('noScale');
         let height = addr.searchParams.get('height');
         if (!height || height == '') {
             height = "300px";
         }
+
+        el.setAttribute('href', addr.href.replace(addr.search, ''));
+
         const viewer = document.createElement('threed-viewer');
         viewer.setAttribute('controls', '');
         viewer.setAttribute('help', '');
@@ -20,9 +30,19 @@ export const init = () => {
         if (!!height && height != '') {
             viewer.setAttribute('height', height);
         }
+        if (noWireframe === null) {
+            viewer.setAttribute('wireframe', '');
+        }
+        if (zoom !== null && zoom != '') {
+            viewer.setAttribute('camera-zoom', zoom);
+        }
         const model = document.createElement('threed-model');
-        model.setAttribute('scale', '');
-        model.setAttribute('center', '');
+        if (noScale === null) {
+            model.setAttribute('scale', '');
+        }
+        if (noCenter === null) {
+            model.setAttribute('center', '');
+        }
         model.appendChild(el.cloneNode());
         viewer.appendChild(model);
         el.parentNode.replaceChild(viewer, el);

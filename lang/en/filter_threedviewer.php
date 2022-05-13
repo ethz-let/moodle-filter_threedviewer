@@ -18,8 +18,8 @@
  *
  * @package    filter
  * @subpackage threedviewer
- * @copyright 2021 Cyril Picard <cpicard@ethz.ch>
+ * @copyright 2022 Cyril Picard <cpicard@ethz.ch>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 $string['filtername'] = 'Threed-Viewer';
-$string['privacy:metadata'] = 'is only used to display STL files in an interactive viewer.';
+$string['privacy:metadata'] = 'is used to display STL, GLTF or GLB files in an interactive viewer.';
