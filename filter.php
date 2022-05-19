@@ -36,16 +36,7 @@ class filter_threedviewer extends moodle_text_filter {
     public $page;
 
     public function setup($page, $context) {
-         // This only requires execution once per request.
-
         $this->page = $page;
-
-        static $jsinitialised = false;
-        if ($jsinitialised) {
-            return;
-        }
-        $jsinitialised = true;
-
     }
 
     public function filter($text, array $options = array()) {
@@ -61,7 +52,10 @@ class filter_threedviewer extends moodle_text_filter {
             return $text;
         }
 
-        $this->page->requires->js_call_amd('filter_threedviewer/threed-filter', 'init');
+        if ($this->page->requires->should_create_one_time_item_now('filter_threedviewer/threed-filter')) {
+            // This only needs to be included and run once
+            $this->page->requires->js_call_amd('filter_threedviewer/threed-filter', 'init');
+        }
 
         return $text;
     }
