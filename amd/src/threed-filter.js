@@ -1,8 +1,8 @@
 import {loader} from "filter_threedviewer/threed-viewer";
 
 export const init = () => {
-    loader.loaders.ktx2.setTranscoderPath( '/filter/threedviewer/libs/basis/' );
-    loader.loaders.draco.setDecoderPath( '/filter/threedviewer/libs/draco/' );
+    loader.loaders.ktx2.setTranscoderPath('/filter/threedviewer/libs/basis/');
+    loader.loaders.draco.setDecoderPath('/filter/threedviewer/libs/draco/');
 
     const modelLinks = document.querySelectorAll(':not(threed-model) > a[href*=".stl"], :not(threed-model) > a[href*=".gltf"], :not(threed-model) > a[href*=".glb"]');
     modelLinks.forEach((el) => {
@@ -13,6 +13,13 @@ export const init = () => {
         const noCenter = addr.searchParams.get('nocenter');
         const noScale = addr.searchParams.get('noScale');
         let height = addr.searchParams.get('height');
+
+        if (!addr.pathname.endsWith('.stl') &&
+                !addr.pathname.endsWith('.gltf') &&
+                !addr.pathname.endsWith('.glb')) {
+            return;
+        }
+
         if (!height || height == '') {
             height = "300px";
         }
