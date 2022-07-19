@@ -62402,7 +62402,7 @@
 	    // Help
 	    this.helpDom = document.createElement( 'div' );
 	    this.helpDom.setAttribute( 'id', 'help' );
-	    this.helpDom.innerText = 'Scroll to zoom / Drag to rotate / Drag & left-click to pan';
+	    this.helpDom.innerText = 'Scroll to zoom / Drag to rotate / Drag & right-click to pan';
 	    this.helpDom.style.visibility = ( ( options.help !== false ) && ( options.help !== null ) );
 	    this.container.appendChild( this.helpDom );
 
@@ -62666,7 +62666,7 @@
 	    if ( !this.hasAttribute('src') || !!!this.getAttribute('src') ) {
 	      const aTag = this.querySelector( 'a' );
 	      if ( aTag ) {
-	        this.setAttribute( 'src', aTag.getAttribute( 'href' ) );
+	        return aTag.getAttribute( 'href' );
 	      }
 	    }
 	    return this.getAttribute('src');
