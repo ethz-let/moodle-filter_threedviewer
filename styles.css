@@ -1,0 +1,10 @@
+/*
+  Catch only MC flex rows where threed filter is being added, if any.
+*/
+
+.que.multichoice:has(.answer):has(.r0):has(threed-viewer) .answer div.r0 {
+  display: block!important;
+}
+.que.multichoice:has(.answer):has(.r1):has(threed-viewer) .answer div.r1 {
+  display: block!important;
+}
