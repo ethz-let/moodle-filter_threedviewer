@@ -27,4 +27,4 @@ $plugin->version   = 2023111300;        // The current plugin version (Date: YYY
 $plugin->requires  = 2014111100;        // Requires this Moodle version.
 $plugin->component = 'filter_threedviewer';     // Full name of the plugin (used for diagnostics).
 $plugin->maturity   = MATURITY_BETA;
-$plugin->release = '4.3';
+$plugin->release = '4.2';
