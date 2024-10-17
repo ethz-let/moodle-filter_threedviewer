@@ -31,33 +31,7 @@
  * @copyright  2022 Cyril Picard <cpicard@ethz.ch>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
-class filter_threedviewer extends moodle_text_filter {
+defined('MOODLE_INTERNAL') || die();
 
-    public $page;
-
-    public function setup($page, $context) {
-        $this->page = $page;
-    }
-
-    public function filter($text, array $options = array()) {
-        global $CFG;
-
-        if (!is_string($text) or empty($text)) {
-            // Non-string data can not be filtered anyway.
-            return $text;
-        }
-
-        if (stripos($text, '.stl') === false && stripos($text, '.glb') === false && stripos($text, '.gltf') === false) {
-            // If there is no .stl|.glb|.gltf, nothing can match.
-            return $text;
-        }
-
-        if ($this->page->requires->should_create_one_time_item_now('filter_threedviewer/threed-filter')) {
-            // This only needs to be included and run once
-            $this->page->requires->js_call_amd('filter_threedviewer/threed-filter', 'init');
-        }
-
-        return $text;
-    }
-}
+debugging('This threedviewer filter file is no longer required in Moodle 4.5+. Please do not include/require it.', DEBUG_DEVELOPER);
 
