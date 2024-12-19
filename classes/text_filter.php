@@ -29,21 +29,20 @@ namespace filter_threedviewer;
 class text_filter extends \core_filters\text_filter {
    #[\Override]
     public function filter($text, array $options = array()) {
-        global $CFG;
+        global $CFG, $OUTPUT, $PAGE;
 
         if (!is_string($text) or empty($text)) {
             // Non-string data can not be filtered anyway.
             return $text;
         }
-
         if (stripos($text, '.stl') === false && stripos($text, '.glb') === false && stripos($text, '.gltf') === false) {
             // If there is no .stl|.glb|.gltf, nothing can match.
             return $text;
         }
 
-        if ($this->page->requires->should_create_one_time_item_now('filter_threedviewer/threed-filter')) {
+        if ($PAGE->requires->should_create_one_time_item_now('filter_threedviewer/threed-filter')) {
             // This only needs to be included and run once
-            $this->page->requires->js_call_amd('filter_threedviewer/threed-filter', 'init');
+            $PAGE->requires->js_call_amd('filter_threedviewer/threed-filter', 'init');
         }
 
         return $text;
